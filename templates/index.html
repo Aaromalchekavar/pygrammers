@@ -1,0 +1,37 @@
+{%extends 'default.html'%}
+
+{%block content%}
+
+<div class="cont_principal">
+
+  <div class="cont_centrar">
+    <div class="cont_login">
+      <h1 style="padding: 2px; text-align: center;">Blood Bank</h1>
+      <form action="details" method="post">
+        {% csrf_token %}
+        <div class="cont_text_inputs">
+
+          <input type="text" class="input_form_sign d_block active_inp" placeholder="name" name="name" />
+
+          <input type="text" class="input_form_sign d_block active_inp" placeholder="age" name="age" />
+
+          <input type="text" class="input_form_sign d_block active_inp" placeholder="bloodgroup" name="bloodgroup" />
+
+        </div>
+        <div class="cont_btn">
+          <input type="submit" class="btn_sign" value="ADD">
+
+        </div>
+
+      </form>
+    </div>
+
+  </div>
+
+
+</div>
+
+
+
+
+{%endblock%}
