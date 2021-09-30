@@ -1,0 +1,34 @@
+{%extends 'default.html'%}
+
+{%block content%}
+
+<div class="login-page">
+    <div class="form">
+        <div class="login">
+            <div class="login-header">
+                <h3>User details</h3>
+            </div>
+        </div>
+        <table id="example" class="table table-striped table-bordered" style="width:100%">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>username</th>
+                    <th>phone</th>
+                </tr>
+            </thead>
+            <tbody>
+                {%for key,value in user.items %}
+                <tr>
+                    <td>{{value.0}}</td>
+                    <td>{{key}}</td>
+                    <td>{{value.2}}</td>
+                </tr>
+                {%endfor%}
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+{%endblock%}

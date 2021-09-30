@@ -18,11 +18,11 @@
         </tr>
       </thead>
       <tbody>
-        {%for key,value in details.items %}
+        {%for d in details %}
         <tr>
-          <td>{{key}}</td>
-          <td>{{value.0}}</td>
-          <td>{{value.1}}</td>
+          <td>{{d.name}}</td>
+          <td>{{d.bloodgroup}}</td>
+          <td>{{d.age}}</td>
         </tr>
         {%endfor%}
 

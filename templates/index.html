@@ -2,11 +2,14 @@
 
 {%block content%}
 
-<div class="cont_principal">
 
+<div class="cont_principal">
   <div class="cont_centrar">
     <div class="cont_login">
       <h1 style="padding: 2px; text-align: center;">Blood Bank</h1>
+      {%if user.is_authenticated%}
+      <p class="warning">Hello {{user.first_name}}</p>
+      {%endif%}
       <form action="details" method="post">
         {% csrf_token %}
         <div class="cont_text_inputs">
@@ -24,6 +27,9 @@
         </div>
 
       </form>
+      {%if user.is_authenticated%}
+      <a class="btn_sign" style="text-decoration: none;"value="sign up" href="logout">logout</a>
+      {%endif%}
     </div>
 
   </div>

@@ -1,0 +1,54 @@
+{%extends 'default.html'%}
+
+{%block content%}
+
+<div class="cont_principal">
+
+    <div class="cont_centrar">
+        <div class="cont_login">
+            <h1 style="padding: 2px; text-align: center;">Sign UP</h1>
+            <form action="signup" method="post">
+                {% csrf_token %}
+                <div class="cont_text_inputs">
+
+                    <input type="text" class="input_form_sign d_block active_inp" placeholder="username"
+                        name="username" />
+            
+                    <input type="text" class="input_form_sign d_block active_inp" placeholder="first_name"
+                        name="first_name" />
+
+                    <input type="text" class="input_form_sign d_block active_inp" placeholder="last_name"
+                        name="last_name" />
+
+                    <input type="text" class="input_form_sign d_block active_inp" placeholder="email" name="email" />
+
+                    <input type="password" class="input_form_sign d_block active_inp" placeholder="password"
+                        name="password1" />
+                    <input type="password" class="input_form_sign d_block active_inp" placeholder="confirm password"
+                        name="password2" />
+                        {%for message in messages%}
+                        <p class="warning">{{message}}</p>
+                        {%endfor%}
+            
+
+                </div>
+                <div class="cont_btn">
+                    <input type="submit" class="btn_sign" value="sign up">
+
+                </div>
+
+            </form>
+            <a class="btn_sign" style="text-decoration: none;"value="sign up" href="login">login</a>
+
+
+        </div>
+
+    </div>
+
+
+</div>
+
+
+
+
+{%endblock%}
