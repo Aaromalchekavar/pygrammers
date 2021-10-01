@@ -2,22 +2,18 @@ from django.http import HttpResponse
 from django.shortcuts import render
 
 
-
 # detail = {}
 
 
 # def details(req):
 
-    # name = req.POST['name']
-    # bloodgroup = req.POST['bloodgroup']
-    # age = req.POST['age']
+# name = req.POST['name']
+# bloodgroup = req.POST['bloodgroup']
+# age = req.POST['age']
 
-    # detail[name] = [bloodgroup, age]
+# detail[name] = [bloodgroup, age]
 
-    # return render(req, 'details.html', {'details': detail})
-
-
-
+# return render(req, 'details.html', {'details': detail})
 
 
 def home(req):
@@ -28,10 +24,10 @@ def home(req):
     #     if key==username and value[1]==password:
     return render(req, 'index.html')
     # return render(req, 'usererror.html')
-    
 
 
 user = {}
+
 
 def user_details(req):
 
@@ -44,6 +40,3 @@ def user_details(req):
     user[username] = [first_name+' '+last_name, password, phone]
 
     return render(req, 'user_details.html', {'user': user})
-
-
-

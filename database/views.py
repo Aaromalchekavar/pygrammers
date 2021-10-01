@@ -16,7 +16,8 @@ def details(req):
 
         # detail[name] = [bloodgroup, age]
 
-        data = Details.objects.create(name=name,bloodgroup=bloodgroup,age=age)
+        data = Details.objects.create(
+            name=name, bloodgroup=bloodgroup, age=age)
         data.save()
 
     detail = Details.objects.all()
