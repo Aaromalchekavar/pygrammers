@@ -8,11 +8,16 @@ from .models import Details
 
 def details(req):
 
-    # name = req.POST['name']
-    # bloodgroup = req.POST['bloodgroup']
-    # age = req.POST['age']
+    if req.method == 'POST':
 
-    # detail[name] = [bloodgroup, age]
+        name = req.POST['name']
+        bloodgroup = req.POST['bloodgroup']
+        age = req.POST['age']
+
+        # detail[name] = [bloodgroup, age]
+
+        data = Details.objects.create(name=name,bloodgroup=bloodgroup,age=age)
+        data.save()
 
     detail = Details.objects.all()
 

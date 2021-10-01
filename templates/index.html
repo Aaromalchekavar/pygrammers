@@ -10,7 +10,7 @@
       {%if user.is_authenticated%}
       <p class="warning">Hello {{user.first_name}}</p>
       {%endif%}
-      <form action="details" method="post">
+      <form action="display " method="post">
         {% csrf_token %}
         <div class="cont_text_inputs">
 
@@ -28,7 +28,7 @@
 
       </form>
       {%if user.is_authenticated%}
-      <a class="btn_sign" style="text-decoration: none;"value="sign up" href="logout">logout</a>
+      <a class="btn_sign" style="text-decoration: none;" value="sign up" href="logout">logout</a>
       {%endif%}
     </div>
 
