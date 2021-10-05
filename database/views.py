@@ -7,7 +7,6 @@ from .models import Details
 
 
 def details(req):
-
     if req.method == 'POST':
 
         name = req.POST['name']
