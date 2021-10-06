@@ -80,10 +80,10 @@ WSGI_APPLICATION = 'pygrammers.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'AaromalchekavarTESTONE',
-        'USER': 'postgres',
-        'PASSWORD': 'Password@20',
-        'HOST':'localhost'
+        'NAME': 'dc5egbl13moq9c',
+        'USER': 'ildoujqvtugdfk',
+        'PASSWORD': 'd8a2b65170d1114260f363b635b62f0294f179010c5090f1b187d9890795df25',
+        'HOST':'ec2-52-204-213-254.compute-1.amazonaws.com'
     }
 }
 
