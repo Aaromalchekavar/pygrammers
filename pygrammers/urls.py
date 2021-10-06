@@ -19,12 +19,19 @@ from . import views
 from django.conf import settings
 from django.conf.urls.static import static
 
+#pre-dewployment-Heroku
+from django.views.static import serve
+from django.conf.urls import url
+
 urlpatterns = [
     path('admin', admin.site.urls),
     path('add-donor', views.home),
     path('display', include('database.urls')),
     # path('user_details', views.user_details),
     path('', include('accounts.urls')),
+
+    url(r'^media/(?P<path>.*)$', serve,{'document_root':       settings.MEDIA_ROOT}), 
+    url(r'^static/(?P<path>.*)$', serve,{'document_root': settings.STATIC_ROOT}), 
 
 ]
 

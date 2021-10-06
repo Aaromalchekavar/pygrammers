@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from .models import Details
 # Create your views here.
 
@@ -7,18 +7,20 @@ from .models import Details
 
 
 def details(req):
-    if req.method == 'POST':
+    if req.session.has_key('username'):
+        if req.session.has_key('password'):
+                if req.method == 'POST':
 
-        name = req.POST['name']
-        bloodgroup = req.POST['bloodgroup']
-        age = req.POST['age']
+                    name = req.POST['name']
+                    bloodgroup = req.POST['bloodgroup']
+                    age = req.POST['age']
 
-        # detail[name] = [bloodgroup, age]
+                    # detail[name] = [bloodgroup, age]
 
-        data = Details.objects.create(
-            name=name, bloodgroup=bloodgroup, age=age)
-        data.save()
+                    data = Details.objects.create(
+                        name=name, bloodgroup=bloodgroup, age=age)
+                    data.save()
 
-    detail = Details.objects.all()
-
-    return render(req, 'details.html', {'details': detail})
+                detail = Details.objects.all()
+                return render(req, 'details.html', {'details': detail})
+    return redirect('/login')

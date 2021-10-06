@@ -1,5 +1,5 @@
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 
 # detail = {}
@@ -17,14 +17,15 @@ from django.shortcuts import render
 
 
 def home(req):
-
+    if req.session.has_key('username'):
+        if req.session.has_key('password'):
     # username = req.POST['username']
     # password = req.POST['password']
     # for key,value in user.items:
     #     if key==username and value[1]==password:
-    return render(req, 'index.html')
+            return render(req, 'index.html')
     # return render(req, 'usererror.html')
-
+    return redirect('/login')
 
 user = {}
 
