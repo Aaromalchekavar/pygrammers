@@ -3,9 +3,11 @@ from django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib.auth.models import auth
 from django.http import JsonResponse
+#for back button clear cache
+from django.views.decorators.cache import cache_control
 # Create your views here.
-
-
+from django.core.cache import cache
+@cache_control(no_cache=True, must_revalidate=True, no_store=True)
 def default(req):
     return redirect('/login')
 
@@ -38,7 +40,7 @@ def signup(req):
 
     return render(req, 'signup.html')
 
-
+@cache_control(no_cache=True, must_revalidate=True, no_store=True)
 def login(req):
     if req.session.has_key('username'):
         username = req.session['username']
@@ -61,16 +63,27 @@ def login(req):
                 safe=False
             )
         else:
+            auth.login
             return JsonResponse(
                 {'success':False},
                 safe=False
             )
     return render(req, 'login.html')
 
-
+@cache_control(no_cache=True, must_revalidate=True, no_store=True)
 def logout(req):
-   try:
-      del req.session['username']
-   except:
-      pass
-   return redirect('/')
+    if req.session.has_key('username'):
+        if req.session.has_key('password'):
+            try:
+                # req.session.clear()
+                # cache.clear()
+                req.session.flush()
+                req.session.modified = True
+                # response = redirect('/login')
+                # response.delete_cookie('sessionid')
+                # return response
+            except:
+                print('unable to delete session')
+                pass
+    return redirect('/')
+
